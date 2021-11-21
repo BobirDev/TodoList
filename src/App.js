@@ -1,34 +1,25 @@
-import React, { useState } from 'react';
-import Header from './components/Header.jsx';
-import Form from './components/Form.jsx';
-import TodosList from './components/TodosList.jsx';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Native from "./components/Native";
+import Home from "./pages/Home";
+import Menu from "./pages/Menu";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import { BrowserRouter, BrowserRouter as Router, Route, Routes, } from "react-router-dom";
 
-const App = () => {
-  const [input, setInput] = useState("");
-  const [todos, setTodos] = useState([]);
+function App() {
   return (
-  <div className="container">
-    <div className="app-wrapper">
-      <div>
-        <Header />
-      </div>
-      <div>
-        <Form 
-        input={input}
-        setInput={setInput}
-        todos={todos}
-        setTodos={setTodos}
-        />
-      </div>
-      <div>
-        <TodosList todos={todos} setTodos={setTodos}/>
-      </div>
+    <div className="App">
+       <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home/>} />
+          <Route path="/menu" exact element={<Menu/>} />
+          <Route path="/about" exact element={<About/>} />
+          <Route path="/contact" exact element={<Contact/>} />
+        </Routes>
+        <Native />
     </div>
-  </div>
   );
-};
-
-
+}
 
 export default App;

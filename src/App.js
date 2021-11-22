@@ -11,21 +11,22 @@ import {
   Route
 } from "react-router-dom";
 
-function App() {
+ function App() {
   return (
     <div className="App">
+       
+       <BrowserRouter>
        <Navbar />
-    <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/menu" exact element={<Menu/>} />
           <Route path="/about" exact element={<About/>} />
           <Route path="/contact" exact element={<Contact/>} />
         </Routes>
+        </BrowserRouter>,
         <Native />
-     </BrowserRouter>,
-    </div>
+     </div>
   );
-}
+  }
 
 export default App;
